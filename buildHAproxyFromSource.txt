@@ -1,0 +1,15 @@
+#Build HAproxy From Source
+$ mkdir ~/rpm ~/rpm/BUILD ~/rpm/RPMS ~/rpm/RPMS/i386 ~/rpm/RPMS/i686 ~/rpm/RPMS/noarch ~/rpm/SOURCES ~/rpm/SPECS ~/rpm/SRPMS ~/rpm/tmp
+
+vi ~/.rpmmacros
+	%_topdir	/home/haproxy/rpm
+	%_tmppath	/home/haproxy/rpm/tmp
+	
+cp haproxy_suse.spec to /home/haproxy/rpm/SPECS/
+update spec for version numbers
+
+wget -O /home/haproxy/rpm/haproxy-1.4.24.tar.gz http://haproxy.1wt.eu/download/1.4/src/haproxy-1.4.24.tar.gz
+
+rpmbuild -ba SPECS/haproxy_suse.spec
+
+

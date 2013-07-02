@@ -1,0 +1,12 @@
+# Run the following to Upgrade haproxy to latest. 
+# Replace version numbers with latest version.
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak 
+cd /tmp
+wget http://haproxy.1wt.eu/download/1.4/src/haproxy-1.4.24.tar.gz
+tar -xvzf haproxy-*
+cd haproxy-1.4.24
+make TARGET=linux2628
+mv /usr/sbin/haproxy /usr/sbin/haproxy_v.X.X
+cp haproxy /usr/sbin/haproxy
+cp /etc/haproxy/haproxy.cfg.bak /etc/haproxy/haproxy.cfg
+/etc/init.d/haproxy reload
